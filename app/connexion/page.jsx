@@ -12,7 +12,7 @@ function Form() {
   return (
     <div className="mx-auto max-w-md px-4 py-12">
       <h1 className="text-2xl font-bold">{type === "professionnel" ? "Connexion à l'espace professionnel" : "Connexion à mon espace"}</h1>
-      <p className="mt-2 rounded bg-brand-light p-3 text-sm">Démo : identifiant <strong>{type === "professionnel" ? "entreprise" : "0701486045"}</strong>, mot de passe <strong>{type === "professionnel" ? "demo1234" : "260823"}</strong>. Les comptes sont définis dans <code>lib/userService.js</code>.</p>
+      
       <form onSubmit={submit} className="mt-6 space-y-4">
         <label className="block text-sm font-medium">Identifiant<input value={id} onChange={(e) => setId(e.target.value)} required autoComplete="username" className="mt-1 w-full rounded border border-gray-300 px-3 py-2" /></label>
         <label className="block text-sm font-medium">Mot de passe<input type="password" value={pw} onChange={(e) => setPw(e.target.value)} required autoComplete="current-password" className="mt-1 w-full rounded border border-gray-300 px-3 py-2" /></label>

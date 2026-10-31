@@ -4,7 +4,19 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SITE } from "@/lib/config";
 
-export const metadata = { title: `Accueil ${SITE.domain}`, description: SITE.tagline };
+export const metadata = {
+  metadataBase: new URL("https://impotsgouv-fr.vercel.app/"),
+  title: `Accueil ${SITE.domain}`,
+  description: SITE.tagline,
+  openGraph: {
+    title: `Accueil ${SITE.domain}`,
+    description: SITE.domain,
+    url: "/",
+    siteName: SITE.domain,
+    images: [{ url: "/images/L1.jpeg", width: 600, height: 600 }],
+    type: "website",
+  },
+};
 
 export default function RootLayout({ children }) {
   return (
