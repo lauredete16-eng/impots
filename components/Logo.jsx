@@ -17,7 +17,7 @@ export default function Logo({ large = false }) {
       >
         République
         <br />
-        de Michel
+        de France
       </span>
       <span
         className={`mt-1 font-serif italic text-gray-700 ${
