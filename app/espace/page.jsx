@@ -6,7 +6,7 @@ import { useAuth } from "@/components/AuthProvider";
 const fmt = (n) => new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR" }).format(n);
 
 export default function Espace() {
-  const { user, ready } = useAuth();
+  const { user, ready, logout } = useAuth();
   const router = useRouter();
   useEffect(() => { if (ready && !user) router.replace("/connexion"); }, [ready, user, router]);
   if (!user) return <p className="p-10">Chargement…</p>;
@@ -29,7 +29,10 @@ export default function Espace() {
         {user.echeancier.map((e, i) => <li key={i} className="flex justify-between px-4 py-3 text-sm"><span>{e.date}</span><strong>{fmt(e.montant)}</strong></li>)}
         <li className="flex justify-between bg-brand-light px-4 py-3 text-sm font-bold"><span>Total</span><strong>{fmt(total)}</strong></li>
       </ul>
-      <Link href="/" className="btn btn-outline mt-8">Retour à l'accueil</Link>
+      <div className="mt-8 flex flex-wrap gap-3">
+        <Link href="/" className="btn btn-outline">Retour à l'accueil</Link>
+        <button onClick={logout} className="btn btn-primary">Se déconnecter</button>
+      </div>
     </div>
   );
 }
